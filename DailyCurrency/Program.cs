@@ -1,4 +1,5 @@
 using DailyCurrency.Data;
+using DailyCurrency.ScheduleTask;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,7 +8,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("CurrencyAppDbConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("CurrencyAppDbConnection")));
+
+builder.Services.AddScoped<RefreshCurrencyMethods>();
+
+builder.Services.AddSingleton<IHostedService, RefreshCurrency>();
 
 var app = builder.Build();
 
