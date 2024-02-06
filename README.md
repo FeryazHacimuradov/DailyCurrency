@@ -1,7 +1,3 @@
-Sure, here's a basic README file for your project:
-
----
-
 # Daily Currency Update Service
 
 This project is designed to update currency data daily from an external API and store it in a local database. It consists of ASP.NET Core MVC application with background service for scheduled currency updates.
