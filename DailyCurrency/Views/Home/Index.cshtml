@@ -2,11 +2,12 @@
 
 @{
     ViewData["Title"] = "Home Page";
+    int counter = 1;
 }
 
 
 <section>
-    <div class="container pt-5">
+    <div class="container pt-1">
         <div class="row">
             <table class="table">
                 <thead class="thead-dark">
@@ -21,18 +22,19 @@
                      @foreach (var item in Model)
                     {
                         <tr>
-                            <th scope="row">@item.Id</th>
+                            <th scope="row">@counter</th>
                             <td>@item.Name</td>
                             <td>@item.Code</td>
                             <td>@item.Value</td>
                         </tr>
+                        counter++;
                     }
 
                     <tr>
-                        <th scope="row">2</th>
-                        <td>1 Yess</td>
-                        <td>EUR</td>
-                        <td>1.8274</td>
+                        <th scope="row">999999</th>
+                        <td>Test</td>
+                        <td>Test</td>
+                        <td>9999</td>
                     </tr>
                 </tbody>
             </table>

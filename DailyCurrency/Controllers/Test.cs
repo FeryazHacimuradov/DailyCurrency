@@ -1,6 +1,7 @@
 ﻿using DailyCurrency.Data;
 using DailyCurrency.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -31,6 +32,22 @@ namespace DailyCurrency.Controllers
                 await InsertCurrenciesToDatabase(currencies);
 
                 return Ok("Currency data inserted successfully!");
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+                return StatusCode(500, $"An error occurred: {ex.Message}");
+            }
+        }
+
+        public async Task<IActionResult> DeleteAllData()
+        {
+            try
+            {
+                // Remove all existing data from the Currency table
+                await _context.Database.ExecuteSqlRawAsync("DELETE FROM Currencies");
+
+                return Ok("All data deleted successfully!");
             }
             catch (Exception ex)
             {
