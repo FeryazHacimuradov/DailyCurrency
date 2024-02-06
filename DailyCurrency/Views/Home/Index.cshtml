@@ -1,0 +1,41 @@
+﻿@model List<Currency>﻿
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<section>
+    <div class="container pt-5">
+        <div class="row">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Valyuta</th>
+                        <th scope="col">Kod</th>
+                        <th scope="col">Kurs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th scope="row">@item.Id</th>
+                            <td>@item.Name</td>
+                            <td>@item.Code</td>
+                            <td>@item.Value</td>
+                        </tr>
+                    }
+
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>1 Yess</td>
+                        <td>EUR</td>
+                        <td>1.8274</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
